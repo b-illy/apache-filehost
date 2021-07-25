@@ -1,0 +1,7 @@
+# do not allow indexing directories
+Options -Indexes
+
+# do not allow reading sensitive files
+<Files ~ ".*">
+	Require all denied
+</Files>

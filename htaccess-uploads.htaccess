@@ -1,0 +1,8 @@
+Options -ExecCGI
+Options -Indexes
+php_flag engine off
+SetHandler none
+# whitelist for file formats that will NOT render as text
+<Files ~ "^(?!.*\.(png|jpg|jfif|jpeg|raw|tiff|heif|gif|webp|webm|mp4|flv|avi|mov|mkv|m4a|aac|flac|mp3|wav|ogg)).*$">
+	ForceType text/plain
+</Files>

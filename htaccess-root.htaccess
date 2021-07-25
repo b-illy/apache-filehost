@@ -1,0 +1,19 @@
+# do not allow indexing directories
+Options -Indexes
+
+RewriteEngine On
+RewriteBase /
+
+# prevent recursion
+RewriteCond %{ENV:REDIRECT_STATUS} 200
+RewriteRule ^ - [L]
+
+# do not redirect if this file or directory exists
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# if file in uploads directory with same filename exists
+RewriteCond /var/www/html/uploads%{REQUEST_URI} -f
+# redirect to it
+RewriteRule ^(.+)$ uploads/$1 [L]
+
