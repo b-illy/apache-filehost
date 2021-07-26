@@ -36,9 +36,7 @@ function generate_filename() {
 if (!isset($_POST["key"]) ||
 	!isset($_FILES["file"]) ||
 	$_FILES["file"]["size"] > $max_file_size ||
-	$_SERVER["REQUEST_METHOD"] !== "POST" ||
-	strpos($_FILES["file"]["name"], ".php") !== false ||
-	strpos($_FILES["file"]["name"], ".phtml") !== false // this security alone will not work
+	$_SERVER["REQUEST_METHOD"] !== "POST"
 ) {
 	http_response_code(400);
 } else {
